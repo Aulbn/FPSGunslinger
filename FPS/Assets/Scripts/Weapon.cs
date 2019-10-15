@@ -13,6 +13,9 @@ public class Weapon : MonoBehaviour
     public int currentAmmo;
     public int magSize;
 
+    [Header("VFX")]
+    public ParticleSystem muzzleFlare;
+
     private float fireRateTimer = 0;
 
     public bool CanShoot { get { return fireRateTimer >= fireRate && currentAmmo > 0; } }
@@ -32,6 +35,7 @@ public class Weapon : MonoBehaviour
         if (!CanShoot) return false;
 
         Debug.Log("Shoot!");
+        muzzleFlare.Play(true);
         fireRateTimer = 0;
         return true;
     }
