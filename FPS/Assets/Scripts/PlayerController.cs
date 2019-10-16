@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     private void TryShoot()
     {
         if (activeWeapon == null) return;
-        if (activeWeapon.Shoot())
+        if (activeWeapon.Shoot(cam))
         {
             armsAnim.SetTrigger("Shoot");
             camRotY += 5f; //Recoil ammount

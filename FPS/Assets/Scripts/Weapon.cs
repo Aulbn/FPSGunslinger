@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
 
     [Header("VFX")]
     public ParticleSystem muzzleFlare;
+    public ParticleSystem hitEffect;
 
     private float fireRateTimer = 0;
 
@@ -30,13 +31,20 @@ public class Weapon : MonoBehaviour
         FireRateCounter();
     }
 
-    public bool Shoot()
+    public bool Shoot(Camera cam)
     {
         if (!CanShoot) return false;
 
-        Debug.Log("Shoot!");
+        RaycastHit hit;
+
         muzzleFlare.Play(true);
         fireRateTimer = 0;
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, fireRange))
+        {
+            ParticleSystem ps = Instantiate(hitEffect, hit.point, Quaternion.Euler(hit.normal)).GetComponent<ParticleSystem>();
+            ps.transform.rotation = Quaternion.LookRotation(hit.normal);
+        }
         return true;
     }
 
