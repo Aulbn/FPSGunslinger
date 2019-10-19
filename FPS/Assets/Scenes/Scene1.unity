@@ -6138,6 +6138,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5016486685959615976, guid: 912b6c4ec1ac13c4d81bf9db48dbba13,
         type: 3}
+    - target: {fileID: 833170508712190733, guid: d314521e95ecb374eb89f6445ed4ae1d,
+        type: 3}
+      propertyPath: recoilAmmount
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d314521e95ecb374eb89f6445ed4ae1d, type: 3}
 --- !u!4 &833170508976178392 stripped

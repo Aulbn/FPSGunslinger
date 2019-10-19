@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     public float walkSpeed = 2f;
     public float mouseSensitivity = 1f;
 
@@ -18,15 +20,18 @@ public class PlayerController : MonoBehaviour
     private Camera cam;
     private float camRotY;
 
+    public static Camera Camera { get { return Instance.cam; } }
+
     void Awake()
     {
+        Instance = this;
         cc = GetComponent<CharacterController>();
         cam = Camera.main;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         defaultFOV = cam.fieldOfView;
     }
 
@@ -39,8 +44,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
             AimToggle();
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-            TryShoot();
+        if (Input.GetKey(KeyCode.Mouse0))
+            activeWeapon.TryShoot();
     }
 
     private void RotationUpdate()
@@ -64,15 +69,11 @@ public class PlayerController : MonoBehaviour
         cc.SimpleMove((input.z * transform.forward + input.x * transform.right) * walkSpeed);
     }
 
-    private void TryShoot()
+    public static void ShootCallback(float recoilAmmount)
     {
-        if (activeWeapon == null) return;
-        if (activeWeapon.Shoot(cam))
-        {
-            armsAnim.SetTrigger("Shoot");
-            camRotY += 5f; //Recoil ammount
-            ClampRotation();
-        }
+        Instance.armsAnim.SetTrigger("Shoot");
+        Instance.camRotY += recoilAmmount;
+        Instance.ClampRotation();
     }
 
     private void AimToggle()

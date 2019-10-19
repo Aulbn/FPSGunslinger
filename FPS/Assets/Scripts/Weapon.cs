@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,11 @@ public class Weapon : MonoBehaviour
     public float damage;
     public float fireRate;
     public float fireRange;
+    public float recoilAmmount;
+
+    private float rememberShootTimer = 0;
+    private float rememberShootTime = 0.1f;
+    private IEnumerator ShootRemember;
 
     [Header("Ammo")]
     public int currentAmmo;
@@ -19,7 +25,7 @@ public class Weapon : MonoBehaviour
 
     private float fireRateTimer = 0;
 
-    public bool CanShoot { get { return fireRateTimer >= fireRate && currentAmmo > 0; } }
+    public bool CanShoot { get { return fireRateTimer <= 0 && currentAmmo > 0 && rememberShootTimer > 0; } }
 
     private void Start()
     {
@@ -28,29 +34,44 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        FireRateCounter();
+        TimersCounter();
+        Debug.Log(fireRateTimer + " : " + rememberShootTimer);
+
+        if (CanShoot)
+            Shoot();
     }
 
-    public bool Shoot(Camera cam)
+    private void TimersCounter()
     {
-        if (!CanShoot) return false;
+        if (rememberShootTimer > 0)
+            rememberShootTimer -= Time.deltaTime;
+        if (fireRateTimer > 0)
+            fireRateTimer -= Time.deltaTime;
+    }
 
+    private void ResetShootTimers()
+    {
+        fireRateTimer = fireRate;
+        rememberShootTimer = 0;
+    }
+
+    public void TryShoot()
+    {
+        rememberShootTimer = rememberShootTime;
+    }
+
+    private void Shoot()
+    {
         RaycastHit hit;
 
         muzzleFlare.Play(true);
-        fireRateTimer = 0;
+        ResetShootTimers();
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, fireRange))
+        if (Physics.Raycast(PlayerController.Camera.transform.position, PlayerController.Camera.transform.forward, out hit, fireRange))
         {
             ParticleSystem ps = Instantiate(hitEffect, hit.point, Quaternion.Euler(hit.normal)).GetComponent<ParticleSystem>();
             ps.transform.rotation = Quaternion.LookRotation(hit.normal);
         }
-        return true;
-    }
-
-    private void FireRateCounter()
-    {
-        if (fireRateTimer < fireRate)
-            fireRateTimer += Time.deltaTime;
+        PlayerController.ShootCallback(recoilAmmount);
     }
 }
