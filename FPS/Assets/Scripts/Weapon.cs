@@ -23,6 +23,10 @@ public class Weapon : MonoBehaviour
     public ParticleSystem muzzleFlare;
     public ParticleSystem hitEffect;
 
+    [Header("Animation")]
+    public Vector3 armAimPos;
+    public Vector3 armAimRot;
+
     private float fireRateTimer = 0;
 
     public bool CanShoot { get { return fireRateTimer <= 0 && currentAmmo > 0 && rememberShootTimer > 0; } }
@@ -35,7 +39,7 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         TimersCounter();
-        Debug.Log(fireRateTimer + " : " + rememberShootTimer);
+        //Debug.Log(fireRateTimer + " : " + rememberShootTimer);
 
         if (CanShoot)
             Shoot();

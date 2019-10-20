@@ -15,9 +15,13 @@ public class PlayerController : MonoBehaviour
     public float aimFOV;
     private float defaultFOV;
     public float aimZoomSpeed;
+    //public float AimValue { get { return Mathf.Abs(((cam.fieldOfView - aimFOV) / (defaultFOV - aimFOV)) - 1); } }
+    public float AimValue { get; private set; }
+    private Vector3 defaultArmAimPos, defaultArmAimRot;
 
     private CharacterController cc;
     private Camera cam;
+    public Camera armsCam;
     private float camRotY;
 
     public static Camera Camera { get { return Instance.cam; } }
@@ -31,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        defaultArmAimPos = armsAnim.transform.localPosition;
+        defaultArmAimRot = armsAnim.transform.localEulerAngles;
         Cursor.lockState = CursorLockMode.Locked;
         defaultFOV = cam.fieldOfView;
     }
@@ -87,15 +93,22 @@ public class PlayerController : MonoBehaviour
     {
         if (IsAiming)
         {
-            if (cam.fieldOfView > aimFOV)
-                cam.fieldOfView -= aimZoomSpeed * Time.deltaTime;
-            else cam.fieldOfView = aimFOV;
+            if (AimValue < 1)
+                AimValue += aimZoomSpeed * Time.deltaTime;
+            else AimValue = 1;
         }
         else
         {
-            if (cam.fieldOfView < defaultFOV)
-                cam.fieldOfView += aimZoomSpeed * Time.deltaTime;
-            else cam.fieldOfView = defaultFOV;
+            if (AimValue > 0)
+                AimValue -= aimZoomSpeed * Time.deltaTime;
+            else AimValue = 0;
         }
+
+        cam.fieldOfView = Mathf.Lerp(defaultFOV, aimFOV, AimValue);
+        armsCam.fieldOfView = Mathf.Lerp(defaultFOV, aimFOV, AimValue);
+        armsAnim.transform.localEulerAngles = Vector3.Lerp(defaultArmAimRot, activeWeapon.armAimRot, AimValue);
+        armsAnim.transform.localPosition = Vector3.Lerp(defaultArmAimPos, activeWeapon.armAimPos, AimValue);
+        UIManager.SetCrosshairOpacity(Mathf.Abs(AimValue-1));
+        armsAnim.SetFloat("AimValue", AimValue);
     }
 }

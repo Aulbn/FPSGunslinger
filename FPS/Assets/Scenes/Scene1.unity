@@ -6143,6 +6143,16 @@ PrefabInstance:
       propertyPath: recoilAmmount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8696988815563020585, guid: d314521e95ecb374eb89f6445ed4ae1d,
+        type: 3}
+      propertyPath: m_Name
+      value: '[Animator] FPSArms'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333061585027696192, guid: d314521e95ecb374eb89f6445ed4ae1d,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 64b9ea5214ec7ed43868a246d82f2c6d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d314521e95ecb374eb89f6445ed4ae1d, type: 3}
 --- !u!4 &833170508976178392 stripped
