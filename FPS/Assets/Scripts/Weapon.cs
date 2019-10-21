@@ -75,6 +75,10 @@ public class Weapon : MonoBehaviour
         {
             ParticleSystem ps = Instantiate(hitEffect, hit.point, Quaternion.Euler(hit.normal)).GetComponent<ParticleSystem>();
             ps.transform.rotation = Quaternion.LookRotation(hit.normal);
+
+            Hitbox hitbox = hit.transform.GetComponent<Hitbox>();
+            if (hitbox != null)
+                hitbox.Damage(damage);
         }
         PlayerController.ShootCallback(recoilAmmount);
     }
