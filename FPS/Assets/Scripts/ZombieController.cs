@@ -30,33 +30,23 @@ public class ZombieController : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-
-        //StartCoroutine(test());
-
     }
 
-    //IEnumerator test()
-    //{
-    //    yield return new WaitForSeconds(3f);
-    //    ToggleRagdoll(true);
-    //}
-
-    private void ToggleRagdoll(bool isRagdoll)
+    public void ToggleRagdoll(bool isRagdoll)
     {
         ragdolling = isRagdoll;
         foreach (Collider c in colliders)
         {
             c.isTrigger = !isRagdoll;
             animator.enabled = !isRagdoll;
-            //animator.avatar = null; //Tips
             c.attachedRigidbody.isKinematic = !isRagdoll;
             agent.enabled = !isRagdoll;
         }
     }
 
-    private void Update()
-    {
-        if (currentHealth <= 0 && !ragdolling)
-            ToggleRagdoll(true);
-    }
+    //private void Update()
+    //{
+    //    if (currentHealth <= 0 && !ragdolling)
+    //        ToggleRagdoll(true);
+    //}
 }

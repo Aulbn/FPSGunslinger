@@ -78,7 +78,7 @@ public class Weapon : MonoBehaviour
 
             Hitbox hitbox = hit.transform.GetComponent<Hitbox>();
             if (hitbox != null)
-                hitbox.Damage(damage);
+                hitbox.Damage(damage, PlayerController.Camera.transform.forward * damage * 1000);
         }
         PlayerController.ShootCallback(recoilAmmount);
     }

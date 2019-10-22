@@ -11,8 +11,14 @@ public class Hitbox : MonoBehaviour
         this.zombieParent = zombieParent;
     }
 
-    public void Damage(float damage)
+    public void Damage(float damage, Vector3 force)
     {
         zombieParent.currentHealth -= damage;
+
+        if (zombieParent.currentHealth <= 0)
+        {
+            zombieParent.ToggleRagdoll(true);
+            GetComponent<Rigidbody>().AddForce(force);
+        }
     }
 }
