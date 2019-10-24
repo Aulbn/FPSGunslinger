@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 442}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 57
+  controlID: 136
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 106
+  controlID: 101
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 58
+  controlID: 137
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -493,9 +493,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 04fbffff
-      m_LastClickedID: -1276
-      m_ExpandedIDs: f0faffff3afbffff50fbffff5afbffff74fbffff
+      m_SelectedIDs: c0460000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 74fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.40066674, y: -0.57825524, z: 0.39009434, w: -0.59413177}
     speed: 2
-    m_Value: {x: -0.4006509, y: -0.57823235, z: 0.3900789, w: -0.5941083}
+    m_Value: {x: 0.40066674, y: 0.5782553, z: -0.39009437, w: 0.59413177}
   m_Size:
     m_Target: 59.310665
     speed: 2
@@ -864,7 +864,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Packages/com.unity.render-pipelines.high-definition
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -876,7 +877,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: d8600000
     m_LastClickedID: 24792
-    m_ExpandedIDs: 00000000184700001a4700001c4700001e4700002047000022470000244700002647000028470000
+    m_ExpandedIDs: 00000000bc460000be460000c0460000c2460000c4460000c6460000c8460000ca460000cc460000ce460000d0460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -904,7 +905,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000184700001a4700001c4700001e47000020470000224700002647000028470000085700000a5700000c570000
+    m_ExpandedIDs: ffffffff00000000bc460000be460000c2460000c4460000c6460000c8460000ca460000cc460000ce460000d0460000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
