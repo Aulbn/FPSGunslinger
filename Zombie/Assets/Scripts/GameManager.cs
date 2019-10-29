@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("Zombies")]
     public GameObject zombiePrefab;
     public float zombieSpawnRate;
+    public bool spawnZombies;
     //public Terrain terrain;
 
     private void Awake()
@@ -29,7 +30,8 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(zombieSpawnRate);
             Vector3 playerPos = PlayerController.Instance.transform.position;
             float offset = Random.Range(3f, 10f);
-            SpawnZombie(new Vector3 (Random.Range(playerPos.x -offset, playerPos.x + offset), playerPos.y, Random.Range(playerPos.z - offset, playerPos.z + offset)));
+            if (spawnZombies)
+                SpawnZombie(new Vector3 (Random.Range(playerPos.x -offset, playerPos.x + offset), playerPos.y, Random.Range(playerPos.z - offset, playerPos.z + offset)));
         }
     }
 
