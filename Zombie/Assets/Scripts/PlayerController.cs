@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     public float walkSpeed = 2f;
+    public float jumpStrength = 5f;
+    public float gravity = 20f;
     public float mouseSensitivity = 1f;
 
     public Weapon activeWeapon;
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float aimZoomSpeed;
     //public float AimValue { get { return Mathf.Abs(((cam.fieldOfView - aimFOV) / (defaultFOV - aimFOV)) - 1); } }
     public float AimValue { get; private set; }
+    public Vector3 Velocity { get; private set; }
     private Vector3 defaultArmAimPos, defaultArmAimRot;
 
     private CharacterController cc;
@@ -71,8 +74,19 @@ public class PlayerController : MonoBehaviour
 
     private void MovementUpdate()
     {
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        cc.SimpleMove((input.z * transform.forward + input.x * transform.right) * walkSpeed);
+        if (cc.isGrounded)
+        {
+            Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            //cc.SimpleMove((input.z * transform.forward + input.x * transform.right) * walkSpeed);
+            Velocity = (input.z * transform.forward + input.x * transform.right) * walkSpeed;
+
+            if (Input.GetKey(KeyCode.Space)) //Jumping
+                Velocity += Vector3.up * jumpStrength;
+        }
+
+        Velocity += Vector3.down * gravity * Time.deltaTime; //Gravity
+
+        cc.Move(Velocity * Time.deltaTime); //Movement
     }
 
     public static void ShootCallback(float recoilAmmount)

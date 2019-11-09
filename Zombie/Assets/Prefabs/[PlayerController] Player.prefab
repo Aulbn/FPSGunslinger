@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5015,6 +5015,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
+  jumpStrength: 5
+  gravity: 20
   mouseSensitivity: 1
   activeWeapon: {fileID: 833170508712190733}
   armsAnim: {fileID: 2333061585027696192}
@@ -5691,7 +5693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   fireRate: 0.3
-  fireRange: 20
+  fireRange: 200
   recoilAmmount: 5
   currentAmmo: 6
   magSize: 6

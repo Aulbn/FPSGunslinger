@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Zombies")]
     public GameObject zombiePrefab;
-    public float zombieSpawnRate;
     public bool spawnZombies;
+
+    [Header("Waves")]
+    public float waveTime = 60;
+    public int spawnAmmount = 5;
+    public float zombieSpawnRate = 3f;
     //public Terrain terrain;
 
     private void Awake()
@@ -20,26 +24,45 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ZombieSpawner());
+        StartCoroutine(WaveCounter()); //Starta inte direkt, kanske. Ha någon introfas
     }
 
-    private IEnumerator ZombieSpawner()
+    private IEnumerator ZombieSpawner(int waveSize)
     {
+        //Debug.Log("Start Spawning Zombies!");
+        for (int i = waveSize; i > 0; i--)
+        {
+            if (spawnZombies)
+            {
+                SpawnZombie(ZombieSpawn.GetRandomSpawnpoint()); //Spawn zombie
+            }
+            yield return new WaitForSeconds(zombieSpawnRate);
+        }
+    }
+
+
+    private IEnumerator WaveCounter()
+    {
+        float waveTimer;
         while (true)
         {
-            yield return new WaitForSeconds(zombieSpawnRate);
-            Vector3 playerPos = PlayerController.Instance.transform.position;
-            float offset = Random.Range(3f, 10f);
-            if (spawnZombies)
-                SpawnZombie(new Vector3 (Random.Range(playerPos.x -offset, playerPos.x + offset), playerPos.y, Random.Range(playerPos.z - offset, playerPos.z + offset)));
+            waveTimer = waveTime;
+
+            StartCoroutine(ZombieSpawner(spawnAmmount)); //Start wave!
+
+            while (waveTimer > 0)
+            {
+                waveTimer -= Time.deltaTime;
+                UIManager.SetTimerText(waveTimer);
+                yield return null;
+            }
         }
     }
 
     private void SpawnZombie(Vector3 spawnPos)
     {
-        if (NavMesh.SamplePosition(spawnPos, out NavMeshHit hit, 50f, 1))
-            spawnPos = hit.position;
         Instantiate(zombiePrefab, spawnPos, Quaternion.LookRotation(PlayerController.Instance.transform.position - spawnPos));
+        //print("Spawned zombie at: " + spawnPos);
     }
 
 }
