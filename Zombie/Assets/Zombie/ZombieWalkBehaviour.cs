@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ZombieWalkBehaviour : StateMachineBehaviour
 {
     private NavMeshAgent agent;
-    private Vector3 playerPos { get { return PlayerController.Instance.transform.position + Vector3.up * .8f; } }
+    private Vector3 playerPos { get { return PlayerController.AllPlayers[0].transform.position + Vector3.up * .8f; } }
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,7 +17,7 @@ public class ZombieWalkBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(PlayerController.Instance.transform.position);
+        agent.SetDestination(PlayerController.AllPlayers[0].transform.position);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

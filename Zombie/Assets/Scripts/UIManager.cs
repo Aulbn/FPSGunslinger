@@ -40,4 +40,26 @@ public class UIManager : MonoBehaviour
         color.a = opacity;
         Instance.crosshair.color = color;
     }
+
+    public static void SetMultiCameraLayout()
+    {
+        int playerCount = PlayerController.AllPlayers.Count;
+        switch (playerCount)
+        {
+            case 1:
+                PlayerController.AllPlayers[0].cam.rect = new Rect(0,0,1,1);
+                break;
+            case 2:
+                PlayerController.AllPlayers[0].cam.rect = new Rect(0, .5f, 1, .5f);
+                PlayerController.AllPlayers[1].cam.rect = new Rect(0, 0, 1, .5f);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                break;
+
+        }
+    }
 }

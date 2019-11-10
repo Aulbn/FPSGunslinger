@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [Header("Players")]
+    public Transform playerSpawn;
 
     [Header("Zombies")]
     public GameObject zombiePrefab;
@@ -24,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //UIManager.SetMultiCameraLayout();
+
         StartCoroutine(WaveCounter()); //Starta inte direkt, kanske. Ha någon introfas
     }
 
@@ -61,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnZombie(Vector3 spawnPos)
     {
-        Instantiate(zombiePrefab, spawnPos, Quaternion.LookRotation(PlayerController.Instance.transform.position - spawnPos));
+        Instantiate(zombiePrefab, spawnPos, Quaternion.LookRotation(PlayerController.AllPlayers[0].transform.position - spawnPos)); //Chose closest instead!!
         //print("Spawned zombie at: " + spawnPos);
     }
 

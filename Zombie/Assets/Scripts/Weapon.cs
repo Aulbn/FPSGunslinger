@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public int ownerID;
+    public PlayerController Owner { get { return PlayerController.AllPlayers[ownerID]; } }
     [Header("Stats")]
     public float damage;
     public float fireRate;
@@ -45,6 +47,11 @@ public class Weapon : MonoBehaviour
             Shoot();
     }
 
+    public void SetOwnerID(int playerID)
+    {
+        ownerID = playerID;
+    }
+
     private void TimersCounter()
     {
         if (rememberShootTimer > 0)
@@ -71,15 +78,15 @@ public class Weapon : MonoBehaviour
         muzzleFlare.Play(true);
         ResetShootTimers();
 
-        if (Physics.Raycast(PlayerController.Camera.transform.position, PlayerController.Camera.transform.forward, out hit, fireRange))
+        if (Physics.Raycast(Owner.cam.transform.position, Owner.cam.transform.forward, out hit, fireRange))
         {
             ParticleSystem ps = Instantiate(hitEffect, hit.point, Quaternion.Euler(hit.normal)).GetComponent<ParticleSystem>();
             ps.transform.rotation = Quaternion.LookRotation(hit.normal);
 
             Hitbox hitbox = hit.transform.GetComponent<Hitbox>();
             if (hitbox != null)
-                hitbox.Damage(damage, PlayerController.Camera.transform.forward * damage * 700 );
+                hitbox.Damage(damage, Owner.cam.transform.forward * damage * 700 );
         }
-        PlayerController.ShootCallback(recoilAmmount);
+        Owner.ShootCallback(recoilAmmount);
     }
 }
