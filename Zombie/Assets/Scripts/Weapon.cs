@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Weapon : MonoBehaviour
 {
-    public int ownerID;
-    public PlayerController Owner { get { return PlayerController.AllPlayers[ownerID]; } }
+    PlayerController owner { get { return PlayerController.Player; } }
     [Header("Stats")]
     public float damage;
     public float fireRate;
@@ -20,36 +20,41 @@ public class Weapon : MonoBehaviour
     [Header("Ammo")]
     public int currentAmmo;
     public int magSize;
+    public float reloadTime;
 
     [Header("VFX")]
-    public ParticleSystem muzzleFlare;
-    public ParticleSystem hitEffect;
+    public VisualEffect muzzleFlash;
+    public VisualEffect hitEffect;
+    public AudioClip gunSound;
+    private AudioSource source;
 
-    [Header("Animation")]
-    public Vector3 armAimPos;
-    public Vector3 armAimRot;
+    [Header("Recoil")]
+    public AnimationCurve recoil; //Behöver nog ändra sen med automatvapen
+    public float recoilForce, recoilTime;
+
+    private Animator animator;
 
     private float fireRateTimer = 0;
+    private bool isReloading;
 
-    public bool CanShoot { get { return fireRateTimer <= 0 && currentAmmo > 0 && rememberShootTimer > 0; } }
+    public bool CanShoot { get { return fireRateTimer <= 0 && currentAmmo > 0 && rememberShootTimer > 0 && !isReloading; } }
+    private Action OnShoot;
 
     private void Start()
     {
         currentAmmo = magSize;
+        UIManager.SetAmmoText(currentAmmo, magSize);
+
+        source = gameObject.AddComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         TimersCounter();
-        //Debug.Log(fireRateTimer + " : " + rememberShootTimer);
 
         if (CanShoot)
             Shoot();
-    }
-
-    public void SetOwnerID(int playerID)
-    {
-        ownerID = playerID;
     }
 
     private void TimersCounter()
@@ -66,27 +71,67 @@ public class Weapon : MonoBehaviour
         rememberShootTimer = 0;
     }
 
-    public void TryShoot()
+    public void TryShoot(Action onShoot)
     {
         rememberShootTimer = rememberShootTime;
+        OnShoot = onShoot;
     }
 
     private void Shoot()
     {
         RaycastHit hit;
 
-        muzzleFlare.Play(true);
+        muzzleFlash.Play();
+        source.PlayOneShot(gunSound, 0.5f);
         ResetShootTimers();
+        if (animator)
+            animator.SetTrigger("Fire");
 
-        if (Physics.Raycast(Owner.cam.transform.position, Owner.cam.transform.forward, out hit, fireRange))
+        currentAmmo--;
+
+        if (Physics.Raycast(owner.cam.transform.position, owner.cam.transform.forward, out hit, fireRange))
         {
-            ParticleSystem ps = Instantiate(hitEffect, hit.point, Quaternion.Euler(hit.normal)).GetComponent<ParticleSystem>();
+            VisualEffect ps = Instantiate(hitEffect, hit.point, Quaternion.Euler(hit.normal)).GetComponent<VisualEffect>();
             ps.transform.rotation = Quaternion.LookRotation(hit.normal);
 
-            Hitbox hitbox = hit.transform.GetComponent<Hitbox>();
-            if (hitbox != null)
-                hitbox.Damage(damage, Owner.cam.transform.forward * damage * 700 );
+            DecalPool.SpawnDecal(hit);
+
+            IDamagable damagable = hit.transform.GetComponent<IDamagable>();
+            if (damagable != null)
+                damagable.OnDamage(damage, owner.cam.transform.forward * damage * 700 );
         }
-        Owner.ShootCallback(recoilAmmount);
+
+        OnShoot();
+        UIManager.SetAmmoText(currentAmmo, magSize);
+        StartCoroutine(IERecoil(owner.cam.transform));
+    }
+
+    public bool Reload()
+    {
+        if (isReloading || currentAmmo >= magSize) return false;
+        if (animator)
+            animator.SetTrigger("Reload");
+        StartCoroutine(IEReload());
+        return true;
+    }
+
+    private IEnumerator IEReload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        isReloading = false;
+        currentAmmo = magSize;
+        UIManager.SetAmmoText(currentAmmo, magSize);
+    }
+
+    private IEnumerator IERecoil(Transform cam)
+    {
+        float timer = 0;
+        while (timer < recoilTime)
+        {
+            timer += Time.deltaTime;
+            cam.transform.localEulerAngles = new Vector3(-recoil.Evaluate(timer / recoilTime) * recoilForce, 0);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

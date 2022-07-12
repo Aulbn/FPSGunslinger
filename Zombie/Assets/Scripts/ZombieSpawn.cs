@@ -27,6 +27,7 @@ public class ZombieSpawn : MonoBehaviour
     public static Vector3 GetRandomSpawnpoint()
     {
         ZombieSpawn spawn = GetRandomSpawn();
+        //Debug.Log("Hej? " + spawn);
         Vector3 spawnPos = spawn.transform.position + Random.insideUnitSphere * spawn.Radius;
         if (NavMesh.SamplePosition(spawnPos, out NavMeshHit hit, spawn.Radius * 2, 1))
             spawnPos = hit.position;

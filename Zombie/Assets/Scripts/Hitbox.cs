@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hitbox : MonoBehaviour
+public class Hitbox : MonoBehaviour, IDamagable
 {
     private ZombieController zombieParent;
 
@@ -11,7 +11,7 @@ public class Hitbox : MonoBehaviour
         this.zombieParent = zombieParent;
     }
 
-    public void Damage(float damage, Vector3 force)
+    public void OnDamage(float damage, Vector3 force)
     {
         zombieParent.currentHealth -= damage;
 

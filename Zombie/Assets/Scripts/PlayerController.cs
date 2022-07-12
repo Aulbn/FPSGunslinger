@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //public static PlayerController Instance;
-
-    public static List<PlayerController> AllPlayers;
-    public int playerID;
+    public static PlayerController Player;
 
     [Header("Input")]
     public float walkSpeed = 2f;
@@ -19,106 +17,57 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private Vector2 lookInput;
     private bool shootInput;
+    public Vector3 Velocity { get; private set; }
 
-    [Header("References")]
+    [Header("Weapon")]
     public Weapon activeWeapon;
-    public Animator armsAnim;
     public bool IsAiming { get; private set; }
     public float aimFOV;
     private float defaultFOV;
     public float aimZoomSpeed;
-    //public float AimValue { get { return Mathf.Abs(((cam.fieldOfView - aimFOV) / (defaultFOV - aimFOV)) - 1); } }
     public float AimValue { get; private set; }
-    public Vector3 Velocity { get; private set; }
 
-    private Vector3 defaultArmAimPos, defaultArmAimRot;
-
+    [Header("References")]
+    public Animator armsAnim;
+    public Transform head;
+    public Camera cam;
+    private float headRotY;
 
     private CharacterController cc;
-    public Camera cam;
-    public Camera armsCam;
-    private float camRotY;
+    private bool isPaused = false;
+    private PlayerInput playerInput;
 
     void Awake()
     {
-        if (AllPlayers == null)
-            AllPlayers = new List<PlayerController>();
-        playerID = AllPlayers.Count;
-        AllPlayers.Add(this);
+        if (!Player) Player = this;
+        else Destroy(gameObject);
 
         cc = GetComponent<CharacterController>();
 
-        controls = new PlayerControls();
-        //controls.Gameplay.Jump.performed += ctx => Jump();
-        controls.Gameplay.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Look.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Shoot.started += ctx => shootInput = true;
-        controls.Gameplay.Shoot.canceled += ctx => shootInput = false;
-        controls.Gameplay.AimDown.performed += ctx => AimToggle();
+        bool uh = false;
+        playerInput = GetComponent<PlayerInput>();
+        playerInput.actions.FindAction("Shoot", uh).performed += ctx => shootInput = true;
+        playerInput.actions.FindAction("Shoot", uh).canceled += ctx => shootInput = false;
 
-
-
-        var player1 = controls.Gameplay;
-        var player2 = controls.Gameplay;
-        //player1.Jump.performed += ctx => Jump();
-
-        //var player2 = player1.Clone();
-        //InputActionRebindingExtensions.ApplyBindingOverridesOnMatchingControls(controls.Gameplay, Gamepad.all[1]);
-        //PlayerInputManager
-        //print("Specified player " + playerID);
-
-        //print (controls.devices);
-
-        //foreach (Gamepad g in Gamepad.all)
-        //{
-        //    print("Gamepad: " + g.displayName + " | " + g.shortDisplayName);
-        //}
-
-        //foreach (InputDevice g in InputDevice.all)
-        //{
-        //    print("InputDevice: " + g.displayName + " | " + g.shortDisplayName);
-        //}
-
+        OnPause();//KÄND BUG - Måste börja med UI-actionmappen
     }
 
-    private void OnEnable()
+    public void OnMove(InputValue value)
     {
-        controls.Gameplay.Enable();
-        //controls.bindingMask = new InputBinding()
-        //InputActionRebindingExtensions.ApplyBindingOverridesOnMatchingControls(controls.Gameplay.Move, )
+        movementInput = value.Get<Vector2>();
     }
 
-    private void OnDisable()
+    public void OnLook (InputValue value)
     {
-        controls.Gameplay.Disable();
+        lookInput = value.Get<Vector2>();
     }
 
-    private void Start()
+    public void OnAimDown()
     {
-        defaultArmAimPos = armsAnim.transform.localPosition;
-        defaultArmAimRot = armsAnim.transform.localEulerAngles;
-        Cursor.lockState = CursorLockMode.Locked;
-        defaultFOV = cam.fieldOfView;
+        AimToggle();
     }
 
-    void Update()
-    {
-        AimUpdate();
-
-        //if (Input.GetKeyDown(KeyCode.Mouse1))
-        //    AimToggle();
-
-        if (shootInput)
-            activeWeapon.TryShoot();
-    }
-
-    private void FixedUpdate()
-    {
-        MovementUpdate();
-        RotationUpdate();
-    }
-
-    private void Jump()
+    public void OnJump()
     {
         if (cc.isGrounded)
         {
@@ -128,48 +77,88 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnReload()
+    {
+        if (activeWeapon.Reload())
+            armsAnim.SetTrigger("Reload");
+    }
+
+    public void OnPause()
+    {
+        //playerInput.SwitchCurrentActionMap(isPaused ? "Gameplay" : "UI");
+        //movementInput = Vector2.zero;
+        //lookInput = Vector2.zero;
+        //PlayerUI.ToggleMenu();
+        //isPaused = !isPaused;
+    }
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        defaultFOV = cam.fieldOfView;
+
+        SetPosition(GameManager.Instance.playerSpawn.position);
+    }
+
+    void Update()
+    {
+        AimUpdate();
+
+        if (shootInput)
+            activeWeapon.TryShoot(ShootCallback); //ALSO DO RECOIL
+    }
+
+    private void FixedUpdate()
+    {
+        MovementUpdate();
+        RotationUpdate();
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        cc.enabled = false;
+        cc.transform.position = position;
+        Velocity = Vector3.zero;
+        cc.enabled = true;
+    }
+
     private void RotationUpdate()
     {
         Vector2 input = lookInput * mouseSensitivity;
-        //lookInput *= mouseSensitivity;
         transform.Rotate(transform.up * input.x);
 
-        camRotY += input.y;
+        headRotY += input.y;
         ClampRotation();
     }
 
     private void ClampRotation()
     {
-        camRotY = Mathf.Clamp(camRotY, -90f, 90f);
-        cam.transform.localRotation = Quaternion.Euler(-camRotY, 0f, 0f);
+        headRotY = Mathf.Clamp(headRotY, -90f, 90f);
+        head.localRotation = Quaternion.Euler(-headRotY, 0f, 0f);
     }
 
     private void MovementUpdate()
     {
-        //Vector3 vel = Velocity;
         if (cc.isGrounded)
-        {
-            Velocity = Velocity.y* transform.up + (movementInput.y * transform.forward + movementInput.x * transform.right) * walkSpeed;
-        }
+            Velocity = Velocity.y * transform.up + (movementInput.y * transform.forward + movementInput.x * transform.right) * walkSpeed;
         else
-        {
             Velocity += Vector3.down * gravity * Time.deltaTime; //Gravity
-        }
+
         cc.Move(Velocity * Time.deltaTime); //Movement
+        armsAnim.SetBool("IsWalking", movementInput != Vector2.zero);
     }
 
-    public void ShootCallback(float recoilAmmount)
+    private void ShootCallback()
     {
         armsAnim.SetTrigger("Shoot");
-        camRotY += recoilAmmount;
-        ClampRotation();
     }
 
     private void AimToggle()
     {
 
         IsAiming = !IsAiming;
-        armsAnim.SetBool("Aiming", IsAiming);
+        armsAnim.SetBool("IsAiming", IsAiming);
+        UIManager.ToggleCrosshair(!IsAiming, 0.1f);
     }
 
     private void AimUpdate()
@@ -188,10 +177,10 @@ public class PlayerController : MonoBehaviour
         }
 
         cam.fieldOfView = Mathf.Lerp(defaultFOV, aimFOV, AimValue);
-        armsCam.fieldOfView = Mathf.Lerp(defaultFOV, aimFOV, AimValue);
-        armsAnim.transform.localEulerAngles = Vector3.Lerp(defaultArmAimRot, activeWeapon.armAimRot, AimValue);
-        armsAnim.transform.localPosition = Vector3.Lerp(defaultArmAimPos, activeWeapon.armAimPos, AimValue);
-        UIManager.SetCrosshairOpacity(Mathf.Abs(AimValue-1));
+        //armsCam.fieldOfView = Mathf.Lerp(defaultFOV, aimFOV, AimValue);
+        //armsAnim.transform.localEulerAngles = Vector3.Lerp(defaultArmAimRot, activeWeapon.armAimRot, AimValue);
+        //armsAnim.transform.localPosition = Vector3.Lerp(defaultArmAimPos, activeWeapon.armAimPos, AimValue);
+        //PlayerUI.SetCrosshairOpacity(Mathf.Abs(AimValue-1));
         armsAnim.SetFloat("AimValue", AimValue);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class GameManager : MonoBehaviour
     public float waveTime = 60;
     public int spawnAmmount = 5;
     public float zombieSpawnRate = 3f;
-    //public Terrain terrain;
 
     private void Awake()
     {
@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //UIManager.SetMultiCameraLayout();
-
         StartCoroutine(WaveCounter()); //Starta inte direkt, kanske. Ha någon introfas
     }
 
@@ -40,7 +38,7 @@ public class GameManager : MonoBehaviour
         {
             if (spawnZombies)
             {
-                SpawnZombie(ZombieSpawn.GetRandomSpawnpoint()); //Spawn zombie
+                SpawnZombie(ZombieSpawn.GetRandomSpawnpoint()); //Spawn zombie AND SEND UP NORMAL ASWELL
             }
             yield return new WaitForSeconds(zombieSpawnRate);
         }
@@ -67,8 +65,9 @@ public class GameManager : MonoBehaviour
 
     private void SpawnZombie(Vector3 spawnPos)
     {
-        Instantiate(zombiePrefab, spawnPos, Quaternion.LookRotation(PlayerController.AllPlayers[0].transform.position - spawnPos)); //Chose closest instead!!
-        //print("Spawned zombie at: " + spawnPos);
+        Instantiate(zombiePrefab, spawnPos, Quaternion.LookRotation(PlayerController.Player.transform.position - spawnPos)); //Rotate along up normal so they don't crawl up weird (if that happens idk)
     }
+
+    
 
 }

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
     public GameObject debugTools;
-
-    public Image crosshair;
     public Text timerText;
-
+    public Image crosshair;
+    public TextMeshProUGUI ammoText;
 
     private void Awake()
     {
@@ -33,33 +33,13 @@ public class UIManager : MonoBehaviour
         Instance.timerText.text = min.ToString("00") + ":" + sec.ToString("00");
     }
 
-
-    public static void SetCrosshairOpacity(float opacity)
+    public static void ToggleCrosshair(bool show, float time)
     {
-        Color color = Instance.crosshair.color;
-        color.a = opacity;
-        Instance.crosshair.color = color;
+        Instance.crosshair.CrossFadeAlpha(show?1:0, time, false);
     }
 
-    public static void SetMultiCameraLayout()
+    public static void SetAmmoText (int mag, int total)
     {
-        int playerCount = PlayerController.AllPlayers.Count;
-        switch (playerCount)
-        {
-            case 1:
-                PlayerController.AllPlayers[0].cam.rect = new Rect(0,0,1,1);
-                break;
-            case 2:
-                PlayerController.AllPlayers[0].cam.rect = new Rect(0, .5f, 1, .5f);
-                PlayerController.AllPlayers[1].cam.rect = new Rect(0, 0, 1, .5f);
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            default:
-                break;
-
-        }
+        Instance.ammoText.text = mag + " / " + total;
     }
 }

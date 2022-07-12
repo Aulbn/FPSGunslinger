@@ -1,0 +1,542 @@
+Using pre-set license
+Built from '2020.2/release' branch; Version is '2020.2.0f1 (3721df5a8b28) revision 3613151'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'sv' Physical Memory: 16327 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Program\Unity\2020.2.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+D:/Dokument/Unity Projects/FPSGunslinger/Zombie
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+60821
+Successfully changed project path to: D:/Dokument/Unity Projects/FPSGunslinger/Zombie
+D:/Dokument/Unity Projects/FPSGunslinger/Zombie
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 374.87 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.0f1 (3721df5a8b28)
+[Subsystems] Discovering subsystems at path D:/Program/Unity/2020.2.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Dokument/Unity Projects/FPSGunslinger/Zombie/Assets
+GfxDevice: creating device client; threaded=0
+d3d12: loaded!
+Direct3D:
+    Version:         Direct3D 12 [level 12.1]
+    Renderer:        NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:          
+    VRAM:            4043 MB
+    App VRAM Budget: 3436 MB
+    Driver:          27.21.14.6089
+d3d12: Profiler is enabled, but stable power state is not. GPU timing errors are expected.
+
+Failed to create a heap!
+
+Initialize mono
+Mono path[0] = 'D:/Program/Unity/2020.2.0f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Program/Unity/2020.2.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Program/Unity/2020.2.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56740
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Program/Unity/2020.2.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.017810 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 509.90 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.422 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.020674 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 395.86 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+HDRP Internally changed the storage of Cube Cookie to use Octahedral Projection inside the 2D Cookie Atlas. It is recommended that you increase the size of the 2D Cookie Atlas if your cookies no longer fit.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset/<>c:<.cctor>b__110_12 (UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset) (at Library/PackageCache/com.unity.render-pipelines.high-definition@10.2.2/Runtime/RenderPipeline/HDRenderPipelineAsset.Migration.cs:126)
+UnityEngine.Rendering.HighDefinition.MigrationStep`2<UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset/Version, UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset>:Migrate (UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset) (at Library/PackageCache/com.unity.render-pipelines.high-definition@10.2.2/Runtime/Core/Migration/MigrationStep.cs:52)
+UnityEngine.Rendering.HighDefinition.MigrationDescription`2<UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset/Version, UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset>:Migrate (UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset) (at Library/PackageCache/com.unity.render-pipelines.high-definition@10.2.2/Runtime/Core/Migration/MigrationDescription.cs:101)
+UnityEngine.Rendering.HighDefinition.HDRenderPipelineAsset:OnEnable () (at Library/PackageCache/com.unity.render-pipelines.high-definition@10.2.2/Runtime/RenderPipeline/HDRenderPipelineAsset.Migration.cs:146)
+UnityEngine.Rendering.GraphicsSettings:get_currentRenderPipeline ()
+UnityEditor.CustomEditorAttributes:FindCustomEditorTypeByType (System.Type,bool)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.4.0/Editor/EditorCore/EditorUtility.cs:591)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.4.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.render-pipelines.high-definition@10.2.2/Runtime/RenderPipeline/HDRenderPipelineAsset.Migration.cs Line: 126)
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  7.351 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.27 seconds
+Refreshing native plugins compatible for Editor in 1.72 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4611 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 220.6 MB.
+System memory in use after: 220.8 MB.
+
+Unloading 158 unused Assets to reduce memory usage. Loaded Objects now: 5055.
+Total: 17.031800 ms (FindLiveObjects: 0.952400 ms CreateObjectMapping: 2.001700 ms MarkObjects: 9.078600 ms  DeleteObjects: 4.997200 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Shaders/VFX_Explosion.shadergraph
+  artifactKey: Guid(55faf3c9c82a4404993b276254f72add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/VFX_Explosion.shadergraph using Guid(55faf3c9c82a4404993b276254f72add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60279aa98c31918e271da354600c03eb') in 0.216581 seconds
+  Import took 0.250449 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Shaders/S_Decal_BulletHole.shadergraph
+  artifactKey: Guid(30438e0613c8ce14a9eb123e3a414420) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/S_Decal_BulletHole.shadergraph using Guid(30438e0613c8ce14a9eb123e3a414420) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f3e768973fe91e536f7172f93edcd67') in 0.034502 seconds
+  Import took 0.056728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000377 seconds.
+  path: Assets/Shaders/Dissolve.shadergraph
+  artifactKey: Guid(6dde7275041da874796316209b7f4646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/Dissolve.shadergraph using Guid(6dde7275041da874796316209b7f4646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f2c0b92fe3ea0e300a373cdf5d65998') in 0.035720 seconds
+  Import took 0.100370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Shaders/Firstperson_Projection.ShaderGraph
+  artifactKey: Guid(37a115e6c3963aa4cae8170ef62ebe15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/Firstperson_Projection.ShaderGraph using Guid(37a115e6c3963aa4cae8170ef62ebe15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71c62fd904a830b70edba69f650fdd87') in 0.046144 seconds
+  Import took 0.121257 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Shaders/VFX_MuzzleFlash.shadergraph
+  artifactKey: Guid(8ac1e58264487c24fbf543d648d95e42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/VFX_MuzzleFlash.shadergraph using Guid(8ac1e58264487c24fbf543d648d95e42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8004d211e8d06ea194753402bb748ff2') in 0.027324 seconds
+  Import took 0.049782 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 66.674162 seconds.
+  path: Assets/Materials/First Person
+  artifactKey: Guid(ea8d9b9950c69ce42b28645b1d0cf1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/First Person using Guid(ea8d9b9950c69ce42b28645b1d0cf1cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23fd6efade3697d4dcf3529dcc19371f') in 0.040452 seconds
+  Import took 0.066689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.340533 seconds.
+  path: Assets/AllSkyFree/Night MoonBurst/AllSky_Night_MoonBurst Equirect.png
+  artifactKey: Guid(34a763168147f4182a21b9fd004d67de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Night MoonBurst/AllSky_Night_MoonBurst Equirect.png using Guid(34a763168147f4182a21b9fd004d67de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6172bccd131d5bf48091f963e7ad107e') in 0.797635 seconds
+  Import took 0.821749 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001066 seconds.
+  path: Assets/NavmeshComponents/Documentation/Images/ConnectingSurfaces-Example.png
+  artifactKey: Guid(330497ebd8c5ca44b9ec533ec9866037) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NavmeshComponents/Documentation/Images/ConnectingSurfaces-Example.png using Guid(330497ebd8c5ca44b9ec533ec9866037) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '704f4f98053dca6a7be960d88a760436') in 0.068081 seconds
+  Import took 0.112631 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000320 seconds.
+  path: Assets/Textures/Gravel_01_NRM.png
+  artifactKey: Guid(7503a992e32166840bb82e8676295831) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Gravel_01_NRM.png using Guid(7503a992e32166840bb82e8676295831) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8ccfc0a4856b680ce75d3220a331abb') in 0.075647 seconds
+  Import took 0.094865 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000298 seconds.
+  path: Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_5_Down-Y.png
+  artifactKey: Guid(2e38ed7c39e8e4314930da8a86ae7a88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_5_Down-Y.png using Guid(2e38ed7c39e8e4314930da8a86ae7a88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12bee98a7734a02a5dad2912bf121f8e') in 0.064072 seconds
+  Import took 0.112065 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_0_Front+Z.png
+  artifactKey: Guid(5fdaaa9d974104e6d8f9e575170a0c70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_0_Front+Z.png using Guid(5fdaaa9d974104e6d8f9e575170a0c70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba66a060205c6c6e5aa8bdb1cbc86ff2') in 0.051911 seconds
+  Import took 0.073179 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/Textures/Sprites/Crosshair_Shotgun.png
+  artifactKey: Guid(c3ebf0dde9dac534794becc93822c7d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Sprites/Crosshair_Shotgun.png using Guid(c3ebf0dde9dac534794becc93822c7d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02a9cecece8092c7a232ada8d250e2a9') in 0.095469 seconds
+  Import took 0.117544 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000365 seconds.
+  path: Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_2_Left+X.png
+  artifactKey: Guid(519e05b7b3cd14409b4a22d07660cfc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_2_Left+X.png using Guid(519e05b7b3cd14409b4a22d07660cfc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47a9109680db3260c350c08094b9a418') in 0.071128 seconds
+  Import took 0.088585 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Textures/VFX/Explosion_01_Top_Combined.tga
+  artifactKey: Guid(c5cf213f8afd528439e39dedd9854e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/Explosion_01_Top_Combined.tga using Guid(c5cf213f8afd528439e39dedd9854e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33b5ca68e2b250f0ef804c462d3a25c9') in 0.161796 seconds
+  Import took 0.190389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/AllSkyFree/Cold Night/Cold Night Equirect.png
+  artifactKey: Guid(97259d0c0ea9f491692be825da27978a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Cold Night/Cold Night Equirect.png using Guid(97259d0c0ea9f491692be825da27978a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ca3d7f6ab0deb7a1d0f55aa61dcadf0') in 0.453869 seconds
+  Import took 0.491906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000443 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Construction_Light/ConstructionLight_Albedo.tif
+  artifactKey: Guid(2ec6e1532acb1254f9f3797b5d82db44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Construction_Light/ConstructionLight_Albedo.tif using Guid(2ec6e1532acb1254f9f3797b5d82db44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b72dc9a59ca61287d891fb9d89403285') in 0.077535 seconds
+  Import took 0.109892 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001823 seconds.
+  path: Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_3_Right-X.png
+  artifactKey: Guid(47551dad0d90646a9a5dac436076f38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_3_Right-X.png using Guid(47551dad0d90646a9a5dac436076f38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d5c8cc3ff584035088d59133d5c8776') in 0.078160 seconds
+  Import took 0.103735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Hammer/Hammer_MetallicOcculusionSmoothness.tif
+  artifactKey: Guid(6c509e4ae024b5e4faeefb92dab5c812) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Hammer/Hammer_MetallicOcculusionSmoothness.tif using Guid(6c509e4ae024b5e4faeefb92dab5c812) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19d6b3f57d9b3378ae0961d0f193476a') in 0.052190 seconds
+  Import took 0.263021 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000296 seconds.
+  path: Assets/Textures/VFX/Explosion_01_Fire.tga
+  artifactKey: Guid(ac31531d7351cc942a61fb1d5c05046b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/Explosion_01_Fire.tga using Guid(ac31531d7351cc942a61fb1d5c05046b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '645202a98b28f8838a3ab3fa915082fe') in 0.098388 seconds
+  Import took 0.216742 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000339 seconds.
+  path: Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_1_Back-Z.png
+  artifactKey: Guid(5e2aba0844c5a4c2ca77ba49a1ea08d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_1_Back-Z.png using Guid(5e2aba0844c5a4c2ca77ba49a1ea08d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c58d7c9348e149b7a320343ff188e25') in 0.052816 seconds
+  Import took 0.129735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Textures/VFX/Explosion_01_Combined_Contrast.tga
+  artifactKey: Guid(df7a0598a45af4744a85e22f846927ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/Explosion_01_Combined_Contrast.tga using Guid(df7a0598a45af4744a85e22f846927ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) d3d12: upload buffer was full! Waited for COPY queue for 2.519 ms.
+ -> (artifact id: '9c7ce8ea2c9713a2765ecbe8017ef4bb') in 0.078657 seconds
+  Import took 0.110440 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000390 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Plastic/Elastic_MetallicOcculusionSmoothness.tif
+  artifactKey: Guid(f5df2fb0c070b57429f8ca23b216093b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Plastic/Elastic_MetallicOcculusionSmoothness.tif using Guid(f5df2fb0c070b57429f8ca23b216093b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3563709db0c5f31fce2500fec459efc') in 0.031013 seconds
+  Import took 0.050770 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/Textures/Grass_01_DIFF.tif
+  artifactKey: Guid(65225e73cf82c2c4d87ad3d019815e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Grass_01_DIFF.tif using Guid(65225e73cf82c2c4d87ad3d019815e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '688817a652746a26d7cc5b6a042ba1d0') in 0.069377 seconds
+  Import took 0.103041 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Textures/VFX/Explosion_top.exr
+  artifactKey: Guid(49d14fac81eb0174da4d65cdec52b971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/Explosion_top.exr using Guid(49d14fac81eb0174da4d65cdec52b971) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c62eb54cb42fb02407905b46b00ae16a') in 0.071279 seconds
+  Import took 0.101784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Concrete/Ground_MetallicOcculusionSmoothness.tif
+  artifactKey: Guid(a8d38587573a5f34c91c4ae0fbd8bfef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Concrete/Ground_MetallicOcculusionSmoothness.tif using Guid(a8d38587573a5f34c91c4ae0fbd8bfef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21d95815156ddba3012fa80e980dd446') in 0.047926 seconds
+  Import took 0.069705 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Textures/Grass_01_NRM.png
+  artifactKey: Guid(db0d375d944b17b42b1606b5f6aba25f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Grass_01_NRM.png using Guid(db0d375d944b17b42b1606b5f6aba25f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '255a2403b6549a1b062758ee5ebbe4a2') in 0.068935 seconds
+  Import took 0.082816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/AllSkyFree/Cold Night/Cold Night__Cam_1_Back-Z.png
+  artifactKey: Guid(7a03001a6d7c746a2a2467b3b3f51660) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Cold Night/Cold Night__Cam_1_Back-Z.png using Guid(7a03001a6d7c746a2a2467b3b3f51660) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5e7157392c0cbfb6bfb18893a16d753') in 0.052258 seconds
+  Import took 0.079013 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/Drywall_AlbedoSmoothness.tif
+  artifactKey: Guid(3e11968c372730442aae3b4f7c909931) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/Drywall_AlbedoSmoothness.tif using Guid(3e11968c372730442aae3b4f7c909931) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2c8126dd94ba6c7197de31cd9ae8699') in 0.041548 seconds
+  Import took 0.069505 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/Textures/VFX/BulletHole_01_BC.png
+  artifactKey: Guid(746f9f9cb1a291340b3cb9af62834161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/BulletHole_01_BC.png using Guid(746f9f9cb1a291340b3cb9af62834161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44007aec5a9a16a160c012232b0796e0') in 0.049086 seconds
+  Import took 0.071033 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000500 seconds.
+  path: Assets/AllSkyFree/Cold Night/Cold Night__Cam_0_Front+Z.png
+  artifactKey: Guid(aad96e1c2baf24d3499e2ea1426ab824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Cold Night/Cold Night__Cam_0_Front+Z.png using Guid(aad96e1c2baf24d3499e2ea1426ab824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b47e230625e62bf2b7244a74fc74cfd') in 0.069470 seconds
+  Import took 0.093470 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Hammer/Hammer_Albedo.tif
+  artifactKey: Guid(59c8de363dc14c54986d0751c2c38342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Hammer/Hammer_Albedo.tif using Guid(59c8de363dc14c54986d0751c2c38342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '352cf9864fe285c5f7d3d9da1c949ba5') in 0.037817 seconds
+  Import took 0.094085 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000070 seconds.
+  path: Assets/AllSkyFree/Cold Night/Cold Night__Cam_3_Right-X.png
+  artifactKey: Guid(2b201733d2df84602b3020984df58790) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Cold Night/Cold Night__Cam_3_Right-X.png using Guid(2b201733d2df84602b3020984df58790) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99e04c4f75123798ad29b974fafa07f3') in 0.045318 seconds
+  Import took 0.075232 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Concrete/Ground_Normal.tif
+  artifactKey: Guid(fab85e0cacda9644a99e5182a86b71f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Concrete/Ground_Normal.tif using Guid(fab85e0cacda9644a99e5182a86b71f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db135a13b25bbfca3b342072c030cb88') in 0.059051 seconds
+  Import took 0.080041 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/DrywallPainted_Normal.tif
+  artifactKey: Guid(2cd242c9999e92b4ca96dab876cfaf13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/DrywallPainted_Normal.tif using Guid(2cd242c9999e92b4ca96dab876cfaf13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e4448f86ff2ae406d77c6a676782882') in 0.063046 seconds
+  Import took 0.089081 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000368 seconds.
+  path: Assets/AllSkyFree/Cold Night/Cold Night__Cam_2_Left+X.png
+  artifactKey: Guid(3aa922ca8577f4f66b8810ab41310933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Cold Night/Cold Night__Cam_2_Left+X.png using Guid(3aa922ca8577f4f66b8810ab41310933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a4b8a7c0bf7d30b0543c7f8ac8180c9') in 0.044694 seconds
+  Import took 0.070689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000299 seconds.
+  path: Assets/Textures/VFX/Explosion_bot.exr
+  artifactKey: Guid(73a74074e36de6c4ca376a70ece30444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/Explosion_bot.exr using Guid(73a74074e36de6c4ca376a70ece30444) Importer(815301076,1909f56bfc062723c751e8b465ee728b) d3d12: upload buffer was full! Waited for COPY queue for 3.233 ms.
+ -> (artifact id: '905393eabd9b082ec697a622ac576f3a') in 0.136159 seconds
+  Import took 0.181558 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_4_Up+Y.png
+  artifactKey: Guid(d6efad16563c1446d86a121dbb004300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Deep Dusk/Deep Dusk__Cam_4_Up+Y.png using Guid(d6efad16563c1446d86a121dbb004300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fc3835e8f1afd8b2d38e5ad9f552979') in 0.097090 seconds
+  Import took 0.149612 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000069 seconds.
+  path: Assets/AllSkyFree/Cold Night/Cold Night__Cam_4_Up+Y.png
+  artifactKey: Guid(3d6928c404a7c46c3991bb1b73521d66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Cold Night/Cold Night__Cam_4_Up+Y.png using Guid(3d6928c404a7c46c3991bb1b73521d66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6811d1b27c72142656f837c54f845b3') in 0.051592 seconds
+  Import took 0.078420 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000354 seconds.
+  path: Assets/Textures/Gravel_01_DIFF.tif
+  artifactKey: Guid(1dc4503ed4d3bc24095792aff6017972) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Gravel_01_DIFF.tif using Guid(1dc4503ed4d3bc24095792aff6017972) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd156086397b2a91df1c2709d8bbf8bbd') in 0.057999 seconds
+  Import took 0.079411 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001008 seconds.
+  path: Assets/Textures/Skies/grimmnight_large.jpg
+  artifactKey: Guid(4bda5286f820b364082d06a2e2077a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Skies/grimmnight_large.jpg using Guid(4bda5286f820b364082d06a2e2077a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c615db874a9da398391cca2d2ca87f6') in 0.085317 seconds
+  Import took 0.104793 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/AllSkyFree/Cold Night/Cold Night__Cam_5_Down-Y.png
+  artifactKey: Guid(8cab6aa3331da40e68754e2214ce08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Cold Night/Cold Night__Cam_5_Down-Y.png using Guid(8cab6aa3331da40e68754e2214ce08fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f57134923237ceee602146c085dad067') in 0.084519 seconds
+  Import took 0.115864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/Textures/Sprites/Crosshair_Revolver.png
+  artifactKey: Guid(9ac573665f65fb5479377655b5a5a225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Sprites/Crosshair_Revolver.png using Guid(9ac573665f65fb5479377655b5a5a225) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '049b0bdf0398e0fdc1fee6416a282792') in 0.060469 seconds
+  Import took 0.086441 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Construction_Light/ConstructionLight_MetallicOcculusionSmoothness.tif
+  artifactKey: Guid(9a81f1a59f171804e84fce76584bdcb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Props/Construction_Light/ConstructionLight_MetallicOcculusionSmoothness.tif using Guid(9a81f1a59f171804e84fce76584bdcb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '759f5cc51618129f20913c260cef4255') in 0.048567 seconds
+  Import took 0.069677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/TextMesh Pro/Sprites/EmojiOne.png
+  artifactKey: Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Sprites/EmojiOne.png using Guid(dffef66376be4fa480fb02b19edbe903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8e495b5207150c34ae8c9d3cb84cfd3') in 0.057685 seconds
+  Import took 0.091967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000405 seconds.
+  path: Assets/AllSkyFree/Deep Dusk/Deep Dusk Equirect.png
+  artifactKey: Guid(66e51860485ae4048a30f7e029e65af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Deep Dusk/Deep Dusk Equirect.png using Guid(66e51860485ae4048a30f7e029e65af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27638a9447260afeee5ecc2c001eccbf') in 0.406106 seconds
+  Import took 0.437767 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/Drywall_Normal.tif
+  artifactKey: Guid(e231e4c02c48ee14aafa55f7b1a843c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/Drywall_Normal.tif using Guid(e231e4c02c48ee14aafa55f7b1a843c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1627accfe36ccc659a2ea72b0f24bcea') in 0.055447 seconds
+  Import took 0.077648 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Textures/VFX/Explosion_01_Smoke.tga
+  artifactKey: Guid(ea5d65576736ee049837ab5e0c68576d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/Explosion_01_Smoke.tga using Guid(ea5d65576736ee049837ab5e0c68576d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5038e6817362d4a633de617283aae943') in 0.046182 seconds
+  Import took 0.086986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000362 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Concrete/Ground_Albedo.tif
+  artifactKey: Guid(87ce03bd447ccce48bbff87ac0d8355f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Concrete/Ground_Albedo.tif using Guid(87ce03bd447ccce48bbff87ac0d8355f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '945e24a23f9bb6aa68edc9210e62e2eb') in 0.051572 seconds
+  Import took 0.114646 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000618 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Plastic/Elastic_Normal.tif
+  artifactKey: Guid(db17334dfe5991a4bbe241ee9a728c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Plastic/Elastic_Normal.tif using Guid(db17334dfe5991a4bbe241ee9a728c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c5a6d53b6ae925ff29d66ca7660eb10') in 0.044837 seconds
+  Import took 0.071965 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Textures/Skies/CGSkies_0323_free.jpg
+  artifactKey: Guid(3d0758682cd157d40912820c297ef8c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Skies/CGSkies_0323_free.jpg using Guid(3d0758682cd157d40912820c297ef8c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29158bf5f8d015c84e7dbf601ce9bfed') in 0.050884 seconds
+  Import took 0.076875 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000435 seconds.
+  path: Assets/AllSkyFree/Night MoonBurst/AllSky_Night_MoonBurst Equirect.png
+  artifactKey: Guid(34a763168147f4182a21b9fd004d67de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AllSkyFree/Night MoonBurst/AllSky_Night_MoonBurst Equirect.png using Guid(34a763168147f4182a21b9fd004d67de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6172bccd131d5bf48091f963e7ad107e') in 0.358040 seconds
+  Import took 0.384142 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002615 seconds.
+  path: Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/Drywall_Albedo.tif
+  artifactKey: Guid(eae496078d11426448124eaf8b285e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HDRPDefaultResources/ExampleAssets/Textures/Drywall/Drywall_Albedo.tif using Guid(eae496078d11426448124eaf8b285e6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a38d847747697100be355b9a48417f27') in 0.059980 seconds
+  Import took 0.072151 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000468 seconds.
+  path: Assets/Textures/VFX/Explosion_01_Combined.tga
+  artifactKey: Guid(98371fdab95b6e6489b092b760d64b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/Explosion_01_Combined.tga using Guid(98371fdab95b6e6489b092b760d64b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b) d3d12: upload buffer was full! Waited for COPY queue for 2.180 ms.
+ -> (artifact id: '69706951db07dbe96aa11ffa6c1378cd') in 0.099866 seconds
+  Import took 0.116869 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Textures/VFX/BulletHole_01_N.png
+  artifactKey: Guid(7d682158e2a482644a37b4c3d4c99ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/VFX/BulletHole_01_N.png using Guid(7d682158e2a482644a37b4c3d4c99ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57ba4a4e16fcbcff79147a555f45e27f') in 0.041930 seconds
+  Import took 0.061938 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/Textures/MapRefrerences/Centrum.png
+  artifactKey: Guid(050b3ef3c3697304fa70bde43b166f18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/MapRefrerences/Centrum.png using Guid(050b3ef3c3697304fa70bde43b166f18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f185c6873b79374392317085000fab51') in 0.058538 seconds
+  Import took 0.089636 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
